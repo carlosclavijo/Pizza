@@ -15,3 +15,7 @@ type Pedido struct {
 	Descuento      float32
 	PrecioTotal    float32
 }
+
+func (p Pedido) CalcularTotal() float32 {
+	return p.PrecioPizzas + p.PrecioDelivery - p.Descuento
+}

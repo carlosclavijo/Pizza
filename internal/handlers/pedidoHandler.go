@@ -77,6 +77,7 @@ func (repo Repository) PostPedido(w http.ResponseWriter, r *http.Request) {
 	if pedido.Promocion != nil {
 		pedido.Descuento = aplicarPromocion(&pedido, pedido.Promocion)
 	}
+	pedido.PrecioTotal = pedido.CalcularTotal()
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(pedido)

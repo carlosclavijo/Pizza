@@ -8,7 +8,6 @@ type Promo2x1 struct {
 
 func (Promo2x1) Descuento(pedido *Pedido) float32 {
 	descuento := pedido.PrecioPizzas / 2
-	pedido.PrecioPizzas = descuento
 	return descuento
 }
 
