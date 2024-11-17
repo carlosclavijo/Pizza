@@ -7,8 +7,8 @@ Proyecto 2 del módulo de Arquitectura de Software.
 
 Librerías
 - [uuid](https://www.github.com/gofrs/uuid) para el uso de UUID
-- [godotenv]((https://www.github.com/joho/godotenv) para cargar el archivo ".env"
-- [gorm]((https://www.gorm.io/gorm) ORM de Go
-- [postgresDriver]((https://www.gorm.io/driver/postgres) Driver de Postgres de GORM
+- [godotenv](https://www.github.com/joho/godotenv) para cargar el archivo ".env"
+- [gorm](https://www.gorm.io/gorm) ORM de Go
+- [postgresDriver](https://www.gorm.io/driver/postgres) Driver de Postgres de GORM
 
 	
