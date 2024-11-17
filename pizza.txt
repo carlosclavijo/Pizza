@@ -1,0 +1,26 @@
+1. Pizza(interfaz)
+    - Id
+    
+    + Preciobase()
+
+2. PizzaSabor
+    - Id
+    - Nombre
+    - Precio
+    - Ingredientes<List>
+
+3. PizzaConToppings
+    - Id
+    - Ingredientes<List>
+
+4. Topping
+    - Nombre
+    - Precio
+
+5. Pedido
+
+6. Promocion(interfaz)
+
+7. Promocion2x1
+
+8. PromocionDelivery
