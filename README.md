@@ -11,4 +11,6 @@ Librerías
 - [gorm](https://www.gorm.io/gorm) ORM de Go
 - [postgresDriver](https://www.gorm.io/driver/postgres) Driver de Postgres de GORM
 
+Para instalar cada librería se utiliza el comando: "go get <url>"
+Ejemplo: "go get github.com/gofrs/uuid"
 	

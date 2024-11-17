@@ -1,23 +1,29 @@
 package models
 
-import "github.com/gofrs/uuid"
+import "reflect"
 
 type PizzaPersonalizada struct {
-	PizzaPersonalizadaId uuid.UUID
-	Ingredientes         []Ingrediente
-	Precio               float32
+	PizzaPersonalizadaId int           `json:"pizzapersonalizada_id" gorm:"unique;primaryKey;autoIncrement"`
+	Ingredientes         []Ingrediente `gorm:"-"`
+	Precio               float32       `json:"precio"`
+	PedidoId             int           `json:"pedido_id"`
 }
 
-func (pizza PizzaPersonalizada) CalcularPrecio() float32 {
-	var precio float32
-	for _, ingrediente := range pizza.Ingredientes {
-		precio += ingrediente.Precio
+func (p PizzaPersonalizada) CalcularPrecio() float32 {
+	p.Precio = 30
+	for _, ingrediente := range p.Ingredientes {
+		p.Precio += ingrediente.Precio
 	}
-	return precio
+	return p.Precio
 }
 
-func NewPizzaPersonalizada(ingredientes []Ingrediente) iPizza {
+func (p *PizzaPersonalizada) GetTipo() string {
+	return reflect.TypeOf(p).Name()
+}
+
+func NewPizzaPersonalizada(ingredientes []Ingrediente, pedido int) IPizza {
 	return &PizzaPersonalizada{
 		Ingredientes: ingredientes,
+		PedidoId:     pedido,
 	}
 }

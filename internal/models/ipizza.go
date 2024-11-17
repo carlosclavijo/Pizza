@@ -1,5 +1,6 @@
 package models
 
-type iPizza interface {
+type IPizza interface {
 	CalcularPrecio() float32
+	GetTipo() string
 }

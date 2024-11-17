@@ -1,11 +1,23 @@
 package models
 
-type Promo2x1 struct{}
+import "reflect"
 
-func (Promo2x1) Descuento(pedido *Pedido) {
-	pedido.precioPizzas = pedido.precioPizzas / 2
+type Promo2x1 struct {
+	Nombre string
 }
 
-func NewPromo2x1(ingredientes []Ingrediente) iPromocion {
-	return &Promo2x1{}
+func (Promo2x1) Descuento(pedido *Pedido) float32 {
+	descuento := pedido.PrecioPizzas / 2
+	pedido.PrecioPizzas = descuento
+	return descuento
+}
+
+func (p *Promo2x1) GetTipo() string {
+	return reflect.TypeOf(p).Name()
+}
+
+func NewPromo2x1() IPromocion {
+	return &Promo2x1{
+		Nombre: "Promocion 2x1",
+	}
 }

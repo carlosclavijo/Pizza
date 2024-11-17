@@ -1,9 +1,7 @@
 package models
 
-import "github.com/gofrs/uuid"
-
 type Ingrediente struct {
-	IngrdienteId uuid.UUID
-	Nombre       string
-	Precio       float32
+	IngredienteId int     `json:"ingrediente_id" gorm:"unique;primaryKey;autoIncrement"`
+	Nombre        string  `json:"nombre"`
+	Precio        float32 `json:"precio"`
 }

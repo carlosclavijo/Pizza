@@ -1,20 +1,25 @@
 package models
 
-import "github.com/gofrs/uuid"
+import "reflect"
 
 type PizzaSabor struct {
-	PizzaSaborId uuid.UUID
-	Nombre       string
-	Precio       float32
+	PizzaSaborId int   `json:"pizzareceta_id" gorm:"unique;primaryKey;autoIncrement"`
+	SaborId      int   `json:"sabor_id"`
+	PedidoId     int   `json:"pedido_id"`
+	Sabor        Sabor `gorm:"-"`
 }
 
-func (pizza PizzaSabor) CalcularPrecio() float32 {
-	return pizza.Precio
+func (p PizzaSabor) CalcularPrecio() float32 {
+	return p.Sabor.Precio
 }
 
-func NewPizzaSabor(nombre string, precio float32) iPizza {
+func (p PizzaSabor) GetTipo() string {
+	return reflect.TypeOf(p).Name()
+}
+
+func NewPizzaSabor(sabor, pedido int) IPizza {
 	return &PizzaSabor{
-		Nombre: nombre,
-		Precio: precio,
+		SaborId:  sabor,
+		PedidoId: pedido,
 	}
 }

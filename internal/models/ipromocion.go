@@ -1,5 +1,6 @@
 package models
 
-type iPromocion interface {
-	Descuento(pedido *Pedido)
+type IPromocion interface {
+	Descuento(pedido *Pedido) float32
+	GetTipo() string
 }

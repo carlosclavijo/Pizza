@@ -12,7 +12,7 @@ import (
 )
 
 type single struct {
-	db *gorm.DB
+	Db *gorm.DB
 }
 
 var (
@@ -26,7 +26,7 @@ func GetInstance() *single {
 		defer lock.Unlock()
 		log.Println("Creating single instance now")
 		singleInstance = &single{
-			db: Connection(),
+			Db: Connection(),
 		}
 	} else {
 		log.Println("Single instance is already created")
